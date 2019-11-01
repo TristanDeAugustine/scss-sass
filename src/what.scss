@@ -1,0 +1,143 @@
+@mixin grid() {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left: -$gutter;
+  letter-spacing: -0.31em;
+  word-spacing: -0.43em;
+}
+
+@mixin column($x) {
+  display: inline-block;
+  padding-left: $gutter;
+  vertical-align: top;
+  letter-spacing: normal;
+  word-spacing: normal;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  @include col-width($x);
+}
+
+@mixin col-width($x) {
+  width: $x * 100%;
+}
+
+body {
+  margin: 0 auto;
+  padding: $gutter;
+}
+
+.page,
+.grid {
+  @include grid();
+}
+
+.content1 {
+  @include column(1);
+  .sub1 {
+    @include column(1);
+  }
+  .sub2 {
+    @include column(1);
+  }
+}
+.content2 {
+  @include column(1);
+  .sub1 {
+    @include column(1);
+  }
+  .sub2 {
+    @include column(1);
+  }
+}
+.content3 {
+  @include column(1);
+  .sub1 {
+    @include column(1/2);
+  }
+  .sub2 {
+    @include column(1/2);
+  }
+}
+
+$color: #bada55;
+.block {
+  margin: 0;
+  margin-bottom: 12px;
+  padding: 12px;
+  color: #fff;
+}
+.content1 .block {
+  background-color: $color;
+}
+.content2 .block {
+  background-color: darken($color, 20%);
+}
+.content3 .block {
+  background-color: darken($color, 40%);
+}
+
+@media only screen and (min-width: 481px) and (max-width: 1023px) {
+  .content1 {
+    @include col-width(1);
+    .sub1 {
+      @include col-width(1/2);
+    }
+    .sub2 {
+      @include col-width(1/2);
+    }
+  }
+  .content2 {
+    @include col-width(2/4);
+    .sub1 {
+      @include col-width(1/2);
+    }
+    .sub2 {
+      @include col-width(1/2);
+    }
+  }
+  .content3 {
+    @include col-width(2/4);
+    .sub1 {
+      @include col-width(2/4);
+    }
+    .sub2 {
+      @include col-width(2/4);
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  body {
+    max-width: 1300px;
+  }
+
+  .content1 {
+    @include col-width(2/4);
+    .sub1 {
+      @include col-width(1/2);
+    }
+    .sub2 {
+      @include col-width(1/2);
+    }
+  }
+  .content2 {
+    @include col-width(1/4);
+    .sub1 {
+      @include col-width(2/3);
+    }
+    .sub2 {
+      @include col-width(1/3);
+    }
+  }
+  .content3 {
+    @include col-width(1/4);
+    .sub1 {
+      @include col-width(1/4);
+    }
+    .sub2 {
+      @include col-width(3/4);
+    }
+  }
+}
