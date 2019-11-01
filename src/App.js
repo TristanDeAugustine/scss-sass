@@ -1,9 +1,47 @@
 import React, { Component } from 'react'
-import HelloWorld from './components/HelloWorld'
 
 class App extends Component {
   render() {
-    return <HelloWorld />
+    return (
+      <div class="page">
+        <div class="content1">
+          <p class="block">grid</p>
+
+          <div class="grid">
+            <div class="sub1">
+              <p class="block">grid</p>
+            </div>
+            <div class="sub2">
+              <p class="block">grid</p>
+            </div>
+          </div>
+        </div>
+        <div class="content2">
+          <p class="block">grid</p>
+
+          <div class="grid">
+            <div class="sub1">
+              <p class="block">grid</p>
+            </div>
+            <div class="sub2">
+              <p class="block">grid</p>
+            </div>
+          </div>
+        </div>
+        <div class="content3">
+          <p class="block">grid</p>
+
+          <div class="grid">
+            <div class="sub1">
+              <p class="block">grid</p>
+            </div>
+            <div class="sub2">
+              <p class="block">grid</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
   }
 }
 
